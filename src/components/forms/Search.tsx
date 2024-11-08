@@ -6,7 +6,7 @@ const Search: React.FC = () => {
   const [searchInput, setSearchInput] = useState("");
   const [errorText, setErrorText] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [usersList, setUsersList] = useState([]);
+  const [usersList, setUsersList] = useState<User[]>([]);
 
   useEffect(() => {
     setIsLoading(true);
@@ -20,27 +20,30 @@ const Search: React.FC = () => {
 
   const fetchUsers = async () => {
     try {
-      const users: User[] = await UsersResource.getUsers(searchInput);
+      const users: User[] = (await UsersResource.getUsers(
+        searchInput,
+      )) as User[];
+
       setUsersList(users);
     } catch (error) {
-      setErrorText(error.message);
-      console.log("ERROR: ", error.message);
+      let message: string = "Unknown Error";
+      if (error instanceof Error) {
+        message = error.message;
+      }
+
+      setErrorText(message);
     } finally {
       setIsLoading(false);
     }
   };
 
-  const handleInputChange = (q) => {
-    setSearchInput(q);
-  };
-
-  const getHighlightedText = (text, highlight) => {
+  const getHighlightedText = (text: string, highlight: string) => {
     const parts = text.split(new RegExp(`(${highlight})`, "gi"));
 
     return (
       <span>
         {" "}
-        {parts.map((part, i) => (
+        {parts.map((part: string, i: number) => (
           <span
             key={i}
             style={
@@ -61,7 +64,7 @@ const Search: React.FC = () => {
       <input
         type="text"
         value={searchInput}
-        onChange={(e) => handleInputChange(e.target.value)}
+        onChange={(e) => setSearchInput(e.target.value)}
         placeholder="Type to search"
       />
 

@@ -5,7 +5,7 @@ export interface GetUsersParams {
   q: string;
 }
 
-const getUsers: Promise<any> = (params: GetUsersParams) => {
+export function searchUsers<T>(params: GetUsersParams): Promise<T> {
   const queryParams = new URLSearchParams({
     q: params.q,
     select: "email,firstName,lastName,image",
@@ -13,6 +13,4 @@ const getUsers: Promise<any> = (params: GetUsersParams) => {
   }).toString();
 
   return fetcher(`${BASE_URL}/users/search?${queryParams}`);
-};
-
-export { getUsers };
+}
