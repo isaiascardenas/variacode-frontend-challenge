@@ -5,7 +5,7 @@ Front End Take Home Exercise`.
 
 ## Prerequisites
 
-- (Node version 23.0.1)[https://nodejs.org/en/learn/getting-started/how-to-install-nodejs]
+- [Node version v23.0.1](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs)
 
 ## Setup
 
@@ -13,17 +13,32 @@ First we need to setup the environment variables used by the Flask application.
 
 1. Open a terminal.
 2. Navigate to the root directory
-3. Run the following command:
+3. Install dependencies with the following command:
 
    ```bash
    npm install
    ```
 
-4. Wait for the setup ...
-5. The Flask application runs on [http://localhost:3000/](http://localhost:3000/)
+4. Start a local server by running:
 
-## Environment Variables
+   ```bash
+   npm run preview -- --port 5000
+   ```
 
-The `.env.example` includes the following environment variables:
+5. Visit [http://localhost:5000/](http://localhost:5000/)
+6. Feel free to modify the port if you need
 
-- `FLASK_APP`: Flask application name
+## Context
+
+The react application has the following folders structure:
+
+- api: fetchers files
+- component: shared components
+- pages: app pages/views
+- styles: css files
+
+This project use a real API from [https://dummyjson.com/](https://dummyjson.com/docs/users#users-search) for the users list.
+
+<br/>
+<br/>
+<i>by isaiascardenas</i>
