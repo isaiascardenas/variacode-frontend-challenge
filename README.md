@@ -32,12 +32,12 @@ First we need to setup the environment variables used by the Flask application.
 
 The react application has the following folders structure:
 
-- api: fetchers files
-- component: shared components
-- pages: app pages/views
-- styles: css files
+- `api`: fetchers files
+- `component`: shared components
+- `pages`: app pages/views
+- `styles`: css files
 
-This project use a real API from [https://dummyjson.com/](https://dummyjson.com/docs/users#users-search) for the users list.
+This project use a real API from [https://dummyjson.com](https://dummyjson.com/docs/users#users-search) for the users list.
 
 <br/>
 <br/>
