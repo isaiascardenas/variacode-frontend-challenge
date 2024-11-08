@@ -1,0 +1,17 @@
+.home {
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.search-container {
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.summary {
+  max-width: 550px;
+}
